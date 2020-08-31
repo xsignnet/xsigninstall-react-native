@@ -7,23 +7,7 @@
 
 @implementation XsigninstallReactNative
 
-
-static id shared;
-
-+ (instancetype)sharedInstance {
-    if (shared != nil) {
-        return shared;
-    }
-    shared = [[self alloc]init];
-    [XSignInstallSDK initWithDelegate:shared];
-    return shared;
-}
-
-- (void)getWakeUpParams:(NSDictionary *)params {
-    [XsigninstallReactNative sharedInstance].wakeupBlock(params);
-}
-
-RCT_EXPORT_MODULE()
+RCT_EXPORT_MODULE();
 
 // Example method
 // See // https://facebook.github.io/react-native/docs/native-modules-ios
@@ -53,6 +37,21 @@ RCT_EXPORT_METHOD(getInstallParams:(RCTPromiseResolveBlock)resolve)
     [XSignInstallSDK getInstallParams:^(NSDictionary * _Nullable dic) {
         resolve(dic);
     }];
+}
+
+static id shared;
+
++ (instancetype)sharedInstance {
+    if (shared != nil) {
+        return shared;
+    }
+    shared = [[self alloc]init];
+    [XSignInstallSDK initWithDelegate:shared];
+    return shared;
+}
+
+- (void)getWakeUpParams:(NSDictionary *)params {
+    [XsigninstallReactNative sharedInstance].wakeupBlock(params);
 }
 
 @end

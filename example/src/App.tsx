@@ -6,7 +6,8 @@ export default function App() {
   const [result, setResult] = React.useState<number | undefined>();
 
   React.useEffect(() => {
-    XsigninstallReactNative.multiply(3, 7).then(setResult);
+    XsigninstallReactNative.reportRegister();
+    XsigninstallReactNative.multiply(8, 9).then(setResult);
   }, []);
 
   return (
