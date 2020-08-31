@@ -16,7 +16,7 @@ export default function App() {
       onPress={()=>XsigninstallReactNative.reportRegister()} 
       />
             <Button title="getWakeupParams" 
-      onPress={()=>XsigninstallReactNative.initWakeupHandler((s)=>{console.log(s.abcWakeup)})} 
+      onPress={()=>XsigninstallReactNative.initWakeupHandler((s)=>{console.log(s)})} 
       />
             <Button title="getInstallParams" 
       onPress={()=>XsigninstallReactNative.getInstallParams((s)=>{console.log(JSON.stringify(s))})} 
